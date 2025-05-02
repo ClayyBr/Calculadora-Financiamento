@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 13%;
+    --card-foreground: 0 0% 100%;
+    --card-hover: 0 0% 15%;
+    --popover: 0 0% 13%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 28 91% 54%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 80%;
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 100%;
+    --success: 108 96% 54%;
+    --success-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 18%;
+    --ring: 28 91% 54%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  input[type="number"] {
+    @apply transition-all duration-200;
+  }
+  input[type="number"]:focus {
+    @apply ring-2 ring-primary/20 ring-offset-2 ring-offset-background;
+  }
+  /* Remove default number input spinners */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.gradient-button {
+  background: #333333 !important;
+  border: 2px solid #f5811b !important;
+  color: #ffffff !important;
+  font-weight: bold !important;
+  transition: all 0.3s ease;
+}
+
+.gradient-button:hover {
+  background: #1a1a1a !important;
+  transform: translateY(-1px);
+}
+
+.tesla-card {
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.tesla-card:hover {
+  transform: translateY(-2px);
+}
+
+.featured-value {
+  text-shadow: 0 0 20px rgba(255, 107, 43, 0.3);
+}
+
+.secondary-results {
+  @apply text-lg font-semibold !important;
+}
